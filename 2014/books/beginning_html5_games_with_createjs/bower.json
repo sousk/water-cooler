@@ -1,0 +1,18 @@
+{
+  "name": "beginning_html5_games_with_createjs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sousk/water-cooler",
+  "authors": [
+    "sou <kido.soshi@dena.jp>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ]
+}

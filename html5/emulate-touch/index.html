@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<script charset="utf-8">
+		console.clear();
+		</script>
+		<title></title>
+		<style media="screen">
+			body {
+				margin: 0; padding: 0;
+				/*min-width: 300px;
+				min-height: 700px;
+				background-color: #333;
+				border: solid 1px red;*/
+			}
+			#content {
+				-webkit-overflow-scrolling: touch;
+				margin: 0; padding 0;
+				width: 100%;
+			}
+			#cover {
+				border: solid 1px red;
+				width:100%;
+				height:100%;
+				top: 0px; left: 0px;
+				position: absolute;
+				background-color: rgba(0,100,0, .4);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="cover">
+
+		</div>
+		<iframe id="content" src="content.html"></iframe>
+
+		<script charset="utf-8">
+		var cover = document.querySelector('#cover');
+		'touchstart'.split(',').forEach(function (type) {
+
+			cover.addEventListener(type, function (evt) {
+				var pt = evt.touches[0];
+				if (pt) {
+					console.log("body", type, "page,screen,client -> ",
+						pt.pageX +','+ pt.pageY, pt.screenX +','+ pt.screenY, pt.clientX +','+ pt.clientY);
+
+					var x = pt.clientX, y = pt.clientY;
+					var iframe = document.querySelector('#content');
+					emulateEvent(type, iframe.contentDocument, x, y);
+					cover.parentElement.removeChild(cover);
+				}
+				else {
+					console.log("missing", type, evt);
+				}
+			}, false);
+		});
+
+		function emulateEvent(type, doc, x, y) {
+			var identifier = Date.now();
+			var touch = doc.createTouch(
+				doc.defaultView, // view
+				doc.body,
+				identifier,
+				x, y, x, y
+			);
+			var touches = doc.createTouchList(touch);
+			var evt = doc.createEvent('TouchEvent');
+			evt.initTouchEvent(
+				type,                // {String}    type
+				true,                 // {Boolean}   canBubble
+				true,                 // {Boolean}   cancelable
+				doc.defaultView, // {Window}    view
+				1,                    // {Number}    detail
+				0,                    // {Number}    screenX
+				0,                    // {Number}    screenY
+				0,                    // {Number}    clientX
+				0,                    // {Number}    clientY
+				false,                // {Boolean}   ctrlKey
+				false,                // {Boolean}   altKey
+				false,                // {Boolean}   shiftKey
+				false,                // {Boolean}   metaKey
+				touches,              // {TouchList} touches
+				touches,              // {TouchList} targetTouches
+				touches,              // {TouchList} changedTouches
+				0,                    // {Number}    scale(0 - 1)
+				0                     // {Number}    rotation
+			);
+			var elm = doc.elementFromPoint(x, y);
+			console.log(elm);
+			elm.dispatchEvent(evt);
+			console.log('hoge');
+		}
+		</script>
+	</body>
+</html>

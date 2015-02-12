@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="editable-color-picker" attributes="color owner">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    This is a {{owner}}'s editable-color-picker.
+    <span style="color: {{color}}">{{color}}</span>.
+    <button on-click="{{setFocus}}">set focus to a text</button>
+    <input type="text" id="nameInput" value="{{owner}}" placeholder="your name here...">
+  </template>
+  <script>
+  Polymer('editable-color-picker', {
+    color: 'red',
+    owner: 'Daniel',
+    setFocus: function () {
+      this.$.nameInput.focus();
+    }
+  });
+  </script>
+</polymer-element>

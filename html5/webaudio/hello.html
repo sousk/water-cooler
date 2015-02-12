@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      var ctx = new webkitAudioContext();
+      // ctx.samplingRate = 480000;
+
+      var buf = ctx.createBuffer(1, 48000, 48000);
+      var ch = buf.getChannelData(0);
+
+      for (var i = 0; i < ch.length; i++) {
+        ch[i] = Math.sin( i/100 * Math.PI);
+      }
+
+      var src = ctx.createBufferSource();
+      src.buffer = buf;
+      src.connect(ctx.destination);
+      src.start(ctx.currentTime);
+      console.log("done");
+    </script>
+  </body>
+</html>

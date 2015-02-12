@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title></title>
+    <style type="text/css" media="screen">
+      #canvas {
+        border: solid black 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="800"></canvas>
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="http://code.createjs.com/createjs-2013.12.12.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      var stage, queue;
+
+      function main() {
+        queue = new createjs.LoadQueue();
+        queue.installPlugin(createjs.Sound);
+        console.log(100);
+
+      }
+      main();
+    </script>
+  </body>
+</html>

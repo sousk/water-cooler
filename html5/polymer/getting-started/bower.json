@@ -1,0 +1,22 @@
+{
+  "name": "getting-started",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sousk/water-cooler",
+  "authors": [
+    "sou <kido.soshi@dena.jp>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.2.3",
+    "polymer-elements": "~0.2.3",
+    "polymer-ui-elements": "~0.2.3",
+    "polymer-ajax": "Polymer/polymer-ajax#~0.2.3"
+  }
+}

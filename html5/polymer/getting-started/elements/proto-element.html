@@ -1,0 +1,20 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="proto-element">
+  <template>
+    I'm a first line.
+    <span style="color: {{color}}">Hi</span>
+    {{owner}}
+  </template>
+  <script>
+    Polymer('proto-element', {
+      owner: 'sou',
+      color: 'red',
+      ready: function () {
+        if (this.owner) {
+          this.owner = this.owner[0].toUpperCase() + this.owner.slice(1);
+        }
+      }
+    });
+  </script>
+</polymer-element>

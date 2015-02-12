@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<title>Examine bfCache</title>
+		<style media="screen">
+			body {
+				background: #333;
+				color: #DFDFDF;
+				padding: 20px;
+			}
+			a, a:visited {
+				color: #DFDFDF;
+			}
+			li {
+				margin: 22px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><a href="a.html">A. bfCache (with no tricks)</a></li>
+			<li><a href="b.html">B. with onunload</a></li>
+			<li><a href="c.html">C. with unload handler</a></li>
+			<li><a href="d.html">D. with beforeunload handler</a></li>
+			<li><a href="e.html">E. iframe + content with onunload</a></li>
+			<li><a href="f.html">F. iframe + content with unload handler</a></li>
+			<li><a href="g.html">G. iframe with onunload + content with onunload</a></li>
+		</ul>
+
+	</body>
+</html>

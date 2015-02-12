@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<title>Examine bfCache</title>
+		<style media="screen">
+			body {
+				background: #333;
+				color: #DFDFDF;
+				padding: 10px;
+			}
+			a, a:visited {
+				color: #DFDFDF;
+			}
+			li {
+				margin: 22px 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="name">
+			B.html
+			<p>
+				counter: <output name="result"></output>
+			</p>
+		</div>
+		<ul>
+			<li><a href="c.html">forward to C</a></li>
+		</ul>
+		<script charset="utf-8">
+			(function (global) {
+				var key = 'iframepagecache';
+				var val = (global.sessionStorage.getItem(key)|0) + 1;
+				document.querySelector('output').innerText = val;
+				global.sessionStorage.setItem(key, val);
+			})(this.self);
+		</script>
+	</body>
+</html>

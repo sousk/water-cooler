@@ -1,0 +1,14 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="color-picker" attributes="color name">
+  <template>
+    Hi, {{name}},
+    <span style="color: {{color}}">{{color}}</span>.
+  </template>
+  <script>
+  Polymer('color-picker', {
+    color: 'red',
+    name: 'Daniel'
+  });
+  </script>
+</polymer-element>

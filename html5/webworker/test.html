@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<button onclick="sayhi()">Say Hi</button>
+		<button onclick="unknown()">unknown cmd</button>
+		<button onclick="stop()">stop worker</button>
+		<br>
+		<output id="result"></output>
+
+		<script charset="utf-8">
+			// var worker = new Worker('worker.js');
+			// worker.addEventListener('message', function (e) {
+			// 	console.log('worker kicked response back');
+			// 	debugger;
+			// });
+			// worker.postMessage('hellow, world');
+			// console.log("ok");
+
+			function sayhi() {
+				worker.postMessage({cmd:'start',msg:'Hi'});
+			}
+			function stop() {
+				worker.postMessage({cmd:'stop', msg:'bye'});
+			}
+			function unknown() {
+				worker.postMessage({cmd:'foobar',msg:'???'});
+			}
+
+			var worker = new Worker('doWork2.js');
+			worker.addEventListener('message', function (e) {
+				console.log('worker kicked response back');
+				document.getElementById('result').textContent = e.data;
+			});
+		</script>
+	</body>
+</html>

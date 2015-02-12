@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+		<a href="./index.html">move</a>
+		<output name="result"></output>
+		<script charset="utf-8">
+			var out = document.querySelector('output');
+			setInterval(function () {
+				out.innerText = (out.innerText|0 || 0) + 1;
+			}, 600);
+
+			window.onunload = function () {
+				alert(1);
+			};
+		</script>
+	</body>
+</html>

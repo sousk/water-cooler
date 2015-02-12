@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title></title>
+		<style media="screen">
+			body {
+				min-width: 300px;
+				min-height: 2700px;
+				background-color: #333;
+				border: solid 1px green;
+			}
+			#foo {
+				border: solid 1px green;
+				margin: 10px;
+				min-height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="foo">
+		</div>
+
+		<script charset="utf-8">
+		document.addEventListener('DOMContentLoaded', function () {
+			'touchstart,touchend'.split(',').forEach(function (type) {
+
+				document.body.addEventListener(type, function (evt) {
+					var pt = evt.touches[0];
+					if (pt) {
+						console.log("CNT body", type, "page,screen,client -> ",
+						pt.pageX +','+ pt.pageY, pt.screenX +','+ pt.screenY, pt.clientX +','+ pt.clientY);
+					}
+					else {
+						console.log("missing", type, evt);
+					}
+				}, false);
+
+				document.querySelector('#foo').addEventListener(type, function (evt) {
+					console.log("CNT #foo", type, evt);
+				}, false);
+
+			});
+
+		}, false);
+		</script>
+	</body>
+</html>
